@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Twitter.</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <script type="text/javascript" src="./bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="./bower_components/oauth-js/dist/oauth.min.js"></script>
+    <script src="./scripts/loadingoverlay.min.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="starter-template">
+            <h1>Twitter.</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <form action="" class="form-inline">
+                    <button type="button" class="btn btn-primary" name="button" id="twitter-login">Login</button>
+                    <div class="form-group">
+                        <input class="form-control col-md-1" type="text" id="twitter-api-route" value="/1.1/statuses/user_timeline.json" />
+                        <input class="form-control col-md-1" type="text" id="twitter-api-hashtag" value="#RAIN" />
+                        <input class="form-control col-md-1" type="number" id="twitter-api-limit" value="20" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <hr>
+                <br>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div id="map" style="width: 100%; height: 500px"></div>
+                <script>
+                    var map;
+
+                    function initMap() {
+                        map = new google.maps.Map(document.getElementById('map'), {
+                            center: {
+                                lat: 45.554962,
+                                lng: 18.695514
+                            },
+                            zoom: 16
+                        });
+                    }
+                </script>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <code id="titter-result-container"></code>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBlgbqdVimWPD0bnIWrlGLP7yIfHG4gKx4&callback=initMap"></script>
+    <script src="./scripts/index.js"></script>
+
+</body>
+
+</html>
